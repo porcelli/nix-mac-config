@@ -19,9 +19,19 @@
     };
   };
 
+
   programs = {
     zsh = {
       enable = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [
+            "git"
+            "docker"
+            "iterm2"
+        ];
+      };
     };
 
     direnv = {
@@ -30,78 +40,80 @@
       nix-direnv.enable = true;
     };
 
-    starship = {
-      enable = true;
+    starship.enable = false;
 
-      settings = {
-        add_newline = false;
-        line_break.disable = true;
-        command_timeout = 100;
-        format = "[$all](dimmed white)";
+    # starship = {
+    #   enable = true;
 
-        character = {
-          success_symbol = "[➜](dimmed green)";
-          error_symbol = "[✖](dimmed red)";
-        };
+    #   settings = {
+    #     add_newline = false;
+    #     line_break.disable = true;
+    #     command_timeout = 100;
+    #     format = "[$all](dimmed white)";
 
-        git_branch = {
-          format = "[$symbol$branch(:$remote_branch)]($style) ";
-          symbol = "λ ";
-          style = "bold purple bg:0xFCA17D";
-          truncation_length = 9223372036854775807;
-          truncation_symbol = "…";
-          only_attached = false;
-          always_show_remote = false;
-          ignore_branches = [];
-          disabled = false;
-        };
+    #     character = {
+    #       success_symbol = "[➜](dimmed green)";
+    #       error_symbol = "[✖](dimmed red)";
+    #     };
 
-        git_status = {
-          ahead = "↑$count";
-          behind = "↓$count";
-          conflicted = "✖";
-          deleted = " 🗑 ";
-          disabled = false;
-          # diverged = " 😵 ";
-          format = "([$all_status$ahead_behind]($style) )";
-          ignore_submodules = false;
-          modified = "*";
-          staged = "[++($count)](green)";
-          stashed = "📦";
-          style = "red bold bg:0xFCA17D";
-          untracked = "…";
-          up_to_date = "✓";
-        };
+    #     git_branch = {
+    #       format = "[$symbol$branch(:$remote_branch)]($style) ";
+    #       symbol = "λ ";
+    #       style = "bold purple bg:0xFCA17D";
+    #       truncation_length = 9223372036854775807;
+    #       truncation_symbol = "…";
+    #       only_attached = false;
+    #       always_show_remote = false;
+    #       ignore_branches = [];
+    #       disabled = false;
+    #     };
 
-        java = {
-          disabled = false;
-          format = "[$symbol($version )]($style)";
-          style = "red dimmed bg:0x86BBD8";
-          symbol = "☕ ";
-          version_format = "v$raw";
-          detect_extensions = [
-            "java"
-            "class"
-            "jar"
-            "gradle"
-            "clj"
-            "cljc"
-          ];
-          detect_files = [
-            "pom.xml"
-            "build.gradle.kts"
-            "build.sbt"
-            ".java-version"
-            "deps.edn"
-            "project.clj"
-            "build.boot"
-          ];
-          detect_folders = [];
-        };
+    #     git_status = {
+    #       ahead = "↑$count";
+    #       behind = "↓$count";
+    #       conflicted = "✖";
+    #       deleted = " 🗑 ";
+    #       disabled = false;
+    #       # diverged = " 😵 ";
+    #       format = "([$all_status$ahead_behind]($style) )";
+    #       ignore_submodules = false;
+    #       modified = "*";
+    #       staged = "[++($count)](green)";
+    #       stashed = "📦";
+    #       style = "red bold bg:0xFCA17D";
+    #       untracked = "…";
+    #       up_to_date = "✓";
+    #     };
 
-        jobs.disabled = true;
-      };
-    };
+    #     java = {
+    #       disabled = false;
+    #       format = "[$symbol($version )]($style)";
+    #       style = "red dimmed bg:0x86BBD8";
+    #       symbol = "☕ ";
+    #       version_format = "v$raw";
+    #       detect_extensions = [
+    #         "java"
+    #         "class"
+    #         "jar"
+    #         "gradle"
+    #         "clj"
+    #         "cljc"
+    #       ];
+    #       detect_files = [
+    #         "pom.xml"
+    #         "build.gradle.kts"
+    #         "build.sbt"
+    #         ".java-version"
+    #         "deps.edn"
+    #         "project.clj"
+    #         "build.boot"
+    #       ];
+    #       detect_folders = [];
+    #     };
+
+    #     jobs.disabled = true;
+    #   };
+    # };
 
   };
 }
