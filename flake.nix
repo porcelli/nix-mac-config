@@ -26,7 +26,7 @@
   } @ inputs: {
 
     darwinConfigurations = {
-      "AlexP-MacBook-Pro" = darwin.lib.darwinSystem {
+      "Alexs-MacBook-Pro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin/darwin.nix
