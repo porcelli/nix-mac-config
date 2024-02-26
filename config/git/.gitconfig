@@ -13,8 +13,8 @@
 	pager = ifne vim -X -R - -n -c 'set filetype=git nowrap noro'
 	sparseCheckoutCone = 1
 [user]
-	name = Henré Botha
-	useConfigOnly = true ; force me to set email in repo local config
+	name = Alex Porcelli
+	email = alex@porcelli.me
 [advice]
 	detachedHead = false
 [pager]

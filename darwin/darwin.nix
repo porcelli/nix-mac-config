@@ -8,9 +8,9 @@
       pkgs.home-manager
     ];
 
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/src/github.com/evantravers/dotfiles";
+  # # Use a custom configuration.nix location.
+  # # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
+  # environment.darwinConfig = "$HOME/src/github.com/evantravers/dotfiles";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -39,10 +39,10 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   nix.extraOptions = ''
-    extra-platforms = x86_64-darwin aarch64-darwin
+    extra-platforms = aarch64-linux x86_64-darwin aarch64-darwin
   '';
 
-  nix.linux-builder.enable = true;
+  nix.settings.trusted-users = [ "@admin" ];
 
   system.defaults = {
     finder = {
