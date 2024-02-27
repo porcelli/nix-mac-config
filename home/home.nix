@@ -13,6 +13,11 @@
     packages = [
       pkgs.nixd
       pkgs.ripgrep
+      pkgs.curl
+      pkgs.wget
+      pkgs.jq
+      pkgs.coreutils
+      pkgs.tree
     ];
 
     sessionVariables = {
