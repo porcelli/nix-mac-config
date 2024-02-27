@@ -23,7 +23,7 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = with pkgs; [ jdk maven git jetbrains.idea-ultimate ];
+          packages = with pkgs; [ jdk maven git jetbrains.idea-ultimate docker ];
         };
       });
     };

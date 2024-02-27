@@ -18,12 +18,13 @@
       pkgs.jq
       pkgs.coreutils
       pkgs.tree
+      pkgs.docker
+      pkgs.colima
     ];
 
     sessionVariables = {
     };
   };
-
 
   programs = {
     zsh = {
