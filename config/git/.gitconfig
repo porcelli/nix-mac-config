@@ -10,7 +10,7 @@
 	; -R:           read only mode
 	; -n:           don't use a swap file
 	; -c:           run command on start, after autocmd/modeline
-	pager = ifne vim -X -R - -n -c 'set filetype=git nowrap noro'
+	; pager = ifne vim -X -R - -n -c 'set filetype=git nowrap noro'
 	sparseCheckoutCone = 1
 [user]
 	name = Alex Porcelli
@@ -20,11 +20,6 @@
 [pager]
 	log = less
 	branch = less
-[color]
-	; Vim/Kakoune can syntax highlight just fine on their own, and don't understand
-	; colour codes, so we disable the colouring when using Vim-paged commands
-	diff = false
-	show = false
 [init]
 	defaultBranch = main
 [push]

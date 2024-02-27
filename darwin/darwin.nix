@@ -1,12 +1,16 @@
 { config, pkgs, ... }:
 
 {
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
       pkgs.home-manager
     ];
+
+  # Some reason I need force this here
+  environment.variables.NIX_PATH = pkgs.lib.mkForce "$HOME/.nix-defexpr/channels";
 
   # # Use a custom configuration.nix location.
   # # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
@@ -50,4 +54,5 @@
       ShowPathbar = true;
     };
   };
+
 }

@@ -34,6 +34,7 @@
           {
             home-manager = {
               users.porcelli = import ./home/home.nix;
+              
             };
             users.users.porcelli.home = "/Users/porcelli";
           }

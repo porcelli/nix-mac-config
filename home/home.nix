@@ -6,7 +6,7 @@
   ];
 
   home = {
-    stateVersion = "23.05"; # Please read the comment before changing.
+    stateVersion = "23.05";
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
@@ -23,6 +23,7 @@
   programs = {
     zsh = {
       enable = true;
+      enableCompletion = true;
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
@@ -32,88 +33,41 @@
             "iterm2"
         ];
       };
+      initExtra = ''
+        if [[ -n "$IN_NIX_SHELL" ]]; then
+          export PS1="$PS1%F{red}:nix-shell>%f "
+        fi
+      '';
+      plugins = [
+        {
+          name = "zsh-nix-shell";
+          file = "nix-shell.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "v0.8.0";
+            sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+          };
+        }
+        {
+          name = "zsh-syntax-highlighting";
+          src = pkgs.fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-syntax-highlighting";
+            rev = "0.6.0";
+            sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+          };
+          file = "zsh-syntax-highlighting.zsh";
+        }
+      ];      
     };
 
     direnv = {
-      enable = true;
-
-      nix-direnv.enable = true;
+      enable = false;
+      nix-direnv.enable = false;
     };
 
     starship.enable = false;
-
-    # starship = {
-    #   enable = true;
-
-    #   settings = {
-    #     add_newline = false;
-    #     line_break.disable = true;
-    #     command_timeout = 100;
-    #     format = "[$all](dimmed white)";
-
-    #     character = {
-    #       success_symbol = "[➜](dimmed green)";
-    #       error_symbol = "[✖](dimmed red)";
-    #     };
-
-    #     git_branch = {
-    #       format = "[$symbol$branch(:$remote_branch)]($style) ";
-    #       symbol = "λ ";
-    #       style = "bold purple bg:0xFCA17D";
-    #       truncation_length = 9223372036854775807;
-    #       truncation_symbol = "…";
-    #       only_attached = false;
-    #       always_show_remote = false;
-    #       ignore_branches = [];
-    #       disabled = false;
-    #     };
-
-    #     git_status = {
-    #       ahead = "↑$count";
-    #       behind = "↓$count";
-    #       conflicted = "✖";
-    #       deleted = " 🗑 ";
-    #       disabled = false;
-    #       # diverged = " 😵 ";
-    #       format = "([$all_status$ahead_behind]($style) )";
-    #       ignore_submodules = false;
-    #       modified = "*";
-    #       staged = "[++($count)](green)";
-    #       stashed = "📦";
-    #       style = "red bold bg:0xFCA17D";
-    #       untracked = "…";
-    #       up_to_date = "✓";
-    #     };
-
-    #     java = {
-    #       disabled = false;
-    #       format = "[$symbol($version )]($style)";
-    #       style = "red dimmed bg:0x86BBD8";
-    #       symbol = "☕ ";
-    #       version_format = "v$raw";
-    #       detect_extensions = [
-    #         "java"
-    #         "class"
-    #         "jar"
-    #         "gradle"
-    #         "clj"
-    #         "cljc"
-    #       ];
-    #       detect_files = [
-    #         "pom.xml"
-    #         "build.gradle.kts"
-    #         "build.sbt"
-    #         ".java-version"
-    #         "deps.edn"
-    #         "project.clj"
-    #         "build.boot"
-    #       ];
-    #       detect_folders = [];
-    #     };
-
-    #     jobs.disabled = true;
-    #   };
-    # };
 
   };
 }
