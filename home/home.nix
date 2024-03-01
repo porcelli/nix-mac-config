@@ -19,7 +19,7 @@
       pkgs.coreutils
       pkgs.tree
       pkgs.docker
-      pkgs.colima
+      pkgs.rancher
     ];
 
     sessionVariables = {
@@ -43,6 +43,8 @@
         if [[ -n "$IN_NIX_SHELL" ]]; then
           export PS1="$PS1%F{red}:nix-shell>%f "
         fi
+        export PATH=$PATH:$HOME/.rd/bin
+        export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show rd0 | awk '/inet / {sub("/.*",""); print $2}')
       '';
       plugins = [
         {
