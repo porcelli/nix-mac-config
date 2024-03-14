@@ -28,10 +28,10 @@
             java = jdk;
           })          
            git jetbrains.idea-ultimate docker ];
+          shellHook = ''
+            tmuxinator java-apache-kie
+          '';
         };
-        shellHook = ''
-          tmuxinator java-apache-kie
-        '';
       });
     };
 }

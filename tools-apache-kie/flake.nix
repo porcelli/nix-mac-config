@@ -28,10 +28,10 @@
             go
             gtk3
             docker ]) ++ (with maven-ps; [ maven ]) ++ (with pnpm-ps; [ nodePackages.pnpm ]) ++ (with helm-ps; [ kubernetes-helm ]);
+          shellHook = ''
+            tmuxinator tools-apache-kie
+          '';
         };
-        shellHook = ''
-          tmuxinator tools-apache-kie
-        '';
       });
     };
 }
