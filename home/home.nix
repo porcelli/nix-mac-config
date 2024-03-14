@@ -20,6 +20,7 @@
       pkgs.tree
       pkgs.docker
       pkgs.rancher
+      pkgs.tmuxPlugins.cpu
     ];
 
     sessionVariables = {
@@ -27,6 +28,19 @@
   };
 
   programs = {
+    tmux = {
+      enable = true;
+      tmuxinator.enable = true;
+      extraConfig = ''
+        unbind C-b
+        set -g prefix C-Space
+        bind C-Space send-prefix
+        set -g mouse on
+        set -g history-limit 100000
+        set -g status-right '#[fg=black,bg=color15] #{cpu_percentage}  %H:%M '
+        run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
+      '';
+    };
     zsh = {
       enable = true;
       enableCompletion = true;

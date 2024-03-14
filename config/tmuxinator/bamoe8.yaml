@@ -1,0 +1,47 @@
+# ~/.tmuxinator/bamoe8.yml
+# you can make as many tabs as you wish...
+
+name: bamoe8
+root: ~/Code/kiegroup
+socket_name: foo # Remove to use default socket
+# pre_window: rbenv shell 2.0.0-p247 # Runs in each tab and pane
+tmux_detached: false
+windows:
+  # - editor:
+  #     pre:
+  #       - echo "I get run in each pane, before each pane command!"
+  #       -
+  #     layout: main-vertical
+  #     panes:
+  #       - echo "vim"
+  #       - #empty, will just run plain bash
+  #       - pane_with_multiple_commands:
+  #           - echo "server"
+  #           - echo "Hello"
+  # - guard:
+  #     layout: tiled
+  #     pre:
+  #       - echo "I get run in each pane."
+  #       - echo "Before each pane command!"
+  #     panes:
+  #       -
+  #       - #empty, will just run plain bash
+  #       -
+  - lienzo: cd lienzo-core
+  - b-bootstrap: cd droolsjbpm-build-bootstrap
+  - soup: cd kie-soup
+  - knowlg: cd droolsjbpm-knowledge
+  - drools: cd drools
+  - lienzo-t: cd lienzo-tests
+  - af: cd appformer
+  - uf-ext: cd kie-uberfire-extensions
+  - jbpm: cd jbpm
+  - integr: cd droolsjbpm-integration
+  - wb-playgrd: cd kie-wb-playground
+  - wb-common: cd kie-wb-common
+  - wb-drools: cd drools-wb
+  - work-items: cd jbpm-work-items
+  - wb-jbpm: cd jbpm-wb
+  - wb-dist: cd kie-wb-distributions
+  - pim: cd process-migration-service
+  - jpmml: cd kie-jpmml-integration

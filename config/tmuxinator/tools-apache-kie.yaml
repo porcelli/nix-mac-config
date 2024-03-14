@@ -1,0 +1,31 @@
+# ~/.tmuxinator/j-apache-kie.yml
+# you can make as many tabs as you wish...
+
+name: j-apache-kie
+root: ~/Code/apache-kie
+socket_name: foo # Remove to use default socket
+# pre_window: rbenv shell 2.0.0-p247 # Runs in each tab and pane
+tmux_detached: false
+windows:
+  # - editor:
+  #     pre:
+  #       - echo "I get run in each pane, before each pane command!"
+  #       -
+  #     layout: main-vertical
+  #     panes:
+  #       - echo "vim"
+  #       - #empty, will just run plain bash
+  #       - pane_with_multiple_commands:
+  #           - echo "server"
+  #           - echo "Hello"
+  # - guard:
+  #     layout: tiled
+  #     pre:
+  #       - echo "I get run in each pane."
+  #       - echo "Before each pane command!"
+  #     panes:
+  #       -
+  #       - #empty, will just run plain bash
+  #       -
+  - tools: cd incubator-kie-tools
+  - empty: 

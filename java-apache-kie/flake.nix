@@ -29,6 +29,9 @@
           })          
            git jetbrains.idea-ultimate docker ];
         };
+        shellHook = ''
+          tmuxinator java-apache-kie
+        '';
       });
     };
 }
