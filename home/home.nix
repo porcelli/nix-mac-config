@@ -6,7 +6,7 @@
   ];
 
   home = {
-    stateVersion = "23.05";
+    stateVersion = "23.11";
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
@@ -21,6 +21,7 @@
       pkgs.docker
       pkgs.rancher
       pkgs.tmuxPlugins.cpu
+      pkgs.openshift
     ];
 
     sessionVariables = {
@@ -37,7 +38,11 @@
         bind C-Space send-prefix
         set -g mouse on
         set -g history-limit 100000
+        set -g set-clipboard on
+        set -g escape-time 10
+        set -g renumber-windows on
         set -g status-right '#[fg=black,bg=color15] #{cpu_percentage}  %H:%M '
+        set-window-option -g xterm-keys on
         run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
       '';
     };
@@ -81,12 +86,12 @@
           };
           file = "zsh-syntax-highlighting.zsh";
         }
-      ];      
+      ];
     };
 
     direnv = {
-      enable = false;
-      nix-direnv.enable = false;
+      enable = true;
+      nix-direnv.enable = true;
     };
 
     starship.enable = false;

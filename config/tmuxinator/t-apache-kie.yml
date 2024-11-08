@@ -1,7 +1,7 @@
-# ~/.tmuxinator/j-apache-kie.yml
+# ~/.tmuxinator/t-apache-kie.yml
 # you can make as many tabs as you wish...
 
-name: j-apache-kie
+name: t-apache-kie
 root: ~/Code/apache-kie
 socket_name: foo # Remove to use default socket
 # pre_window: rbenv shell 2.0.0-p247 # Runs in each tab and pane
@@ -27,8 +27,5 @@ windows:
   #       -
   #       - #empty, will just run plain bash
   #       -
-  - drools: cd incubator-kie-drools
-  - optaplanner: incubator-kie-optaplanner
-  - runtimes: cd incubator-kie-kogito-runtimes
-  - apps: cd incubator-kie-kogito-apps
-  - examples: cd incubator-kie-kogito-examples
+  - tools: cd incubator-kie-tools
+  - empty: 

@@ -28,9 +28,9 @@
       devShells = forEachSupportedSystem ({ pkgs, maven-ps }: {
         default = pkgs.mkShell {
           packages = with pkgs; [ jdk git jetbrains.idea-ultimate docker ] ++ (with maven-ps; [ maven ]) ;
-          shellHook = ''
-            tmuxinator bamoe8
-          '';
+          # shellHook = ''
+          #   tmuxinator bamoe8
+          # '';
         };
       });
     };
