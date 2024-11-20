@@ -18,13 +18,13 @@ darwin-rebuild switch --flake .
 Run develop config from local:
 
 ```
-nix develop "git+file:///Users/porcelli/Code/nix-mac-config?dir=java-bamoe8"
+nix develop "git+file:///Users/porcelli/Code/nix-mac-config?dir=bamoe8"
 ```
 
 Run develop config from GitHub:
 
 ```
-nix develop "github:porcelli/nix-mac-config?dir=java-apache-kie"
+nix develop "github:porcelli/nix-mac-config?dir=apache-kie"
 ```
 
 Create develop config:
