@@ -6,7 +6,7 @@
   ];
 
   home = {
-    stateVersion = "23.11";
+    stateVersion = "24.11";
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
@@ -19,9 +19,9 @@
       pkgs.coreutils
       pkgs.tree
       pkgs.docker
-      pkgs.rancher
+      # pkgs.rancher
       pkgs.tmuxPlugins.cpu
-      pkgs.openshift
+      # pkgs.openshift
     ];
 
     sessionVariables = {
@@ -58,13 +58,13 @@
             "iterm2"
         ];
       };
-      initExtra = ''
-        if [[ -n "$IN_NIX_SHELL" ]]; then
-          export PS1="$PS1%F{red}:nix-shell>%f "
-        fi
-        export PATH=$PATH:$HOME/.rd/bin
-        export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show rd0 | awk '/inet / {sub("/.*",""); print $2}')
-      '';
+      # initExtra = ''
+      #   if [[ -n "$IN_NIX_SHELL" ]]; then
+      #     export PS1="$PS1%F{red}:nix-shell>%f "
+      #   fi
+      #   export PATH=$PATH:$HOME/.rd/bin
+      #   export TESTCONTAINERS_HOST_OVERRIDE=$(rdctl shell ip a show rd0 | awk '/inet / {sub("/.*",""); print $2}')
+      # '';
       plugins = [
         {
           name = "zsh-nix-shell";
@@ -90,8 +90,8 @@
     };
 
     direnv = {
-      enable = true;
-      nix-direnv.enable = true;
+      enable = false;
+      nix-direnv.enable = false;
     };
 
     starship.enable = false;

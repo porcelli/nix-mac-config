@@ -2,10 +2,10 @@
   description = "Nix System Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,7 +26,7 @@
   } @ inputs: {
 
     darwinConfigurations = {
-      "Alexs-MacBook-Pro-2" = darwin.lib.darwinSystem {
+      "Alexs-MacBook-Air" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin/darwin.nix
@@ -34,7 +34,7 @@
           {
             home-manager = {
               users.porcelli = import ./home/home.nix;
-              
+
             };
             users.users.porcelli.home = "/Users/porcelli";
           }
