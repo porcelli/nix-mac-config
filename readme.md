@@ -38,3 +38,7 @@ Run local develop profile
 ```
 nix develop ~/java-bamoe8 -c $SHELL
 ```
+
+For website, while I don't fix the allow insecure config, this is how to use:
+
+NIXPKGS_ALLOW_INSECURE=1 nix develop --impure "git+file:///Users/porcelli/Code/nix-mac-config?dir=porcelli-site" -c $SHELL
